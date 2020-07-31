@@ -28,12 +28,15 @@ class Lacteos(Producto):
       return super().__str__()+f"Fecha Vencimiento\t {self.mes_ven}/{self.a_ven}"
 
     def calcular_precio(self):
-      if (self.a_ven<=x.year and self.mes_ven<x.month):
+      if (self.a_ven<=x.year or self.mes_ven<x.month):
         self.pvp=self.pvp*0.5
-        print("hola")
-      return 
 
 
-alimento=Lacteos(1, "Yogurt", 100, "con cereales", 5, 2015)
-print(alimento.calcular_precio())
-print(alimento)
+alimento=Lacteos(1, "Yogurt", 100, "con cereales", 5, 2020)
+alimento2=Producto(1, "Arroz", 100, "integral")
+
+lista_productos=[alimento,alimento2]
+
+for a in lista_productos:
+  a.calcular_precio()
+  print(a,"\n")
